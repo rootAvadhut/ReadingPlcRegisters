@@ -1,0 +1,245 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #0056b3;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --border-radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/*.container {*/
+/*    background: #fff;*/
+/*    padding: 30px;*/
+/*    border-radius: var(--border-radius);*/
+/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+/*    width: 100%;*/
+/*    max-width: 800px;*/
+/*    text-align: center;*/
+/*}*/
+/*.container {*/
+/*    width: 80%; !* Increase width to 80% of the viewport *!*/
+/*    max-width: 1200px; !* Ensure it doesn't become too wide *!*/
+/*    margin: 20px auto; !* Center it horizontally *!*/
+/*    padding: 20px;*/
+/*    background: #fff;*/
+/*    border-radius: 10px;*/
+/*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+/*}*/
+.container {
+    width: 80%; /* Wider container */
+    max-width: 1200px; /* Ensure it doesn't become too wide */
+    margin: 20px auto; /* Center it horizontally */
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 80vh; /* Set a max height for scrolling */
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group,
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+    color: var(--text-color);
+}
+
+select,
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+select:focus,
+input:focus {
+    border-color: var(--primary-color);
+}
+
+.input-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+button,
+.back-home {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 15px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button:hover,
+.back-home:hover {
+    background: var(--secondary-color);
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.data-table th,
+.data-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.data-table th {
+    background: var(--primary-color);
+    color: white;
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 20px;
+    }
+
+    .input-group {
+        grid-template-columns: 1fr;
+    }
+}
+/* Add these new styles */
+.navigation-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.back-button {
+    background: #607d8b;
+    padding: 0.75rem 1.5rem;
+}
+
+.back-button:hover {
+    background: #546e7a;
+}
+
+.entry-row {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.entry-row label {
+    font-weight: 500;
+    color: #666;
+}
+
+.static-field {
+    padding: 0.5rem;
+    background: #f5f5f5;
+    border-radius: 4px;
+    text-align: center;
+}
+/*#plc {*/
+/*    width: 150px; !* Reduce width of dropdown *!*/
+/*    padding: 5px;*/
+/*    font-size: 14px;*/
+/*}*/
+/*.entries-container {*/
+/*    max-height: 300px; !* Limit height *!*/
+/*    overflow-y: auto; !* Add vertical scrollbar *!*/
+/*    border: 1px solid #ccc;*/
+/*    padding: 10px;*/
+/*}*/
+.entries-container {
+    max-height: 500px; /* Increased height for more visibility */
+    overflow-y: auto; /* Enable vertical scrollbar */
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Ensure dropdown is smaller */
+#plc {
+    width: 150px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.entry-row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0.5rem;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.entry-row label {
+    font-weight: 500;
+    color: #666;
+}
+
+.static-field {
+    padding: 0.5rem;
+    background: #f5f5f5;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.entry-field input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}

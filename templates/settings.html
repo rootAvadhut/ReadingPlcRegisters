@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLC Settings</title>
+    <link rel="stylesheet" href="/static/settings_styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>PLC Settings</h1>
+
+        <!-- Flash messages for validation errors -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+            <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <form id="settings-form" method="POST">
+            <!-- Dropdown for PLC selection -->
+            <label for="plc">Select PLC:</label>
+            <select id="plc" name="plc" required>
+                <option value="">Select PLC</option>
+                {% for i in range(1, 21) %}
+                <option value="PLC{{ i }}">PLC{{ i }}</option>
+                {% endfor %}
+            </select>
+
+            <!-- IP Address -->
+            <label for="ip_address">IP Address:</label>
+            <input type="text" id="ip_address" name="ip_address" required placeholder="e.g., 192.168.1.10">
+
+            <!-- Port Number -->
+            <label for="port">Port:</label>
+            <input type="number" id="port" name="port" required min="1" max="65535" placeholder="e.g., 502">
+
+            <!-- Sampling Frequency -->
+            <label for="sampling_freq">Sampling Frequency (ms):</label>
+            <input type="number" id="sampling_freq" name="sampling_freq" required min="100" max="180000" placeholder="100-180000 ms">
+
+            <!-- Change in Data -->
+            <label for="change_data">Change in Data (%):</label>
+            <input type="number" id="change_data" name="change_data" required min="1" max="100" placeholder="1-100%">
+
+            <button type="submit">Save</button>
+        </form>
+
+        <!-- Table to Display Existing PLC Data -->
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>PLC</th>
+                    <th>IP Address</th>
+                    <th>Port</th>
+                    <th>Sampling Frequency (ms)</th>
+                    <th>Change in Data (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for plc in plc_data %}
+                <tr>
+                    <td>{{ plc['PLC'] }}</td>
+                    <td>{{ plc['IP Address'] }}</td>
+                    <td>{{ plc['Port'] }}</td>
+                    <td>{{ plc['Sampling Frequency'] }}</td>
+                    <td>{{ plc['Change in Data'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Back to Home Button -->
+        <a href="/" class="back-button">Back to Home</a>
+
+    </div>
+    <script src="/static/settings.js"></script>
+
+</body>
+</html>
+

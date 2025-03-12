@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PLC Monitor</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>PLC Monitor</h1>
+        <div class="control-group">
+           <select id="plcSelect">
+    <option value="">Select PLC</option>
+    <!-- Options will be added here dynamically -->
+</select>
+
+            <button id="showButton">Show</button>
+<!--              <button id="refreshButton">Refresh</button> &lt;!&ndash; Refresh Button &ndash;&gt;-->
+            <button id="settingsButton" onclick="window.location.href='/settings'">Settings</button>
+            <button id="registerButton" onclick="window.location.href='/register'">Register</button>
+
+        </div>
+    </div>
+    <script src="/static/main.js"></script>
+</body>
+</html>
